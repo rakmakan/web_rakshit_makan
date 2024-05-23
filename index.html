@@ -1,443 +1,462 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Rakshit Makan</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rakshit Makan - Generative AI Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap');
 
-<body id="page-top">
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="#page-top">Rakshit Makan</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio"><strong>HIGHLIGHTS</strong></a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Journey</a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link active js-scroll-trigger" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <header class="masthead" style="background-image:url('assets/img/header-bg.jpg');">
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in"><span>Welcome To My Portfolio</span></div>
-                <div class="intro-heading text-uppercase"><span>It's Nice To Meet You</span></div><a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" role="button" href="#services">Tell me more</a>
-            </div>
-        </div>
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: #fff;
+            color: #000;
+            transition: background-color 0.5s, color 0.5s;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background: #ffcc00;
+            color: #000;
+            font-size: 36px;
+            transition: background-color 0.5s, color 0.5s;
+            position: relative;
+        }
+        header .title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff6600;
+            text-transform: uppercase;
+        }
+        header .subtitle {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        header .location {
+            font-size: 18px;
+        }
+        .toggle-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .toggle-switch input[type="checkbox"] {
+            display: none;
+        }
+        .toggle-switch label {
+            display: block;
+            width: 60px;
+            height: 30px;
+            background: #ccc;
+            border-radius: 15px;
+            position: relative;
+            cursor: pointer;
+        }
+        .toggle-switch label::after {
+            content: '';
+            width: 28px;
+            height: 28px;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            transition: left 0.2s;
+        }
+        .toggle-switch input[type="checkbox"]:checked + label::after {
+            left: 31px;
+        }
+        .container {
+            padding: 50px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s;
+            height: 100vh; /* Full page height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container.visible {
+            opacity: 1;
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-size: cover;
+            padding: 100px 20px;
+        }
+        #home {
+            background-image: url('background.jpg');
+        }
+        #about, #skills, #experience, #projects, #education, #contact {
+            background: #f4f4f4;
+            margin: 20px;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+            height: 100vh; /* Full page height */
+        }
+        .dark-mode #about, .dark-mode #skills, .dark-mode #experience, .dark-mode #projects, .dark-mode #education, .dark-mode #contact {
+            background: #333;
+            color: #fff;
+        }
+        .section-title {
+            font-size: 48px; /* Larger font size */
+            margin-bottom: 20px;
+            color: #ff6600;
+            font-weight: 700; /* Bold */
+            text-transform: uppercase; /* Comic-style uppercase */
+        }
+        .content {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        nav {
+            background: #333;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .card-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px;
+            scroll-snap-type: x mandatory;
+        }
+        .card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            flex: 0 0 300px;
+            padding: 20px;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+        }
+        .dark-mode .card {
+            background: #444;
+        }
+        .card img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .card h3 {
+            font-size: 24px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .card p {
+            font-size: 16px;
+            line-height: 1.4;
+            margin: 5px 0;
+            text-align: center;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .card ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: start;
+        }
+        .card ul li::before {
+            content: '•';
+            margin-right: 8px;
+            color: #ff6600;
+        }
+        .card-container.skills img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        .card.skills-card {
+            display: flex;
+            align-items: center;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .contact-item i {
+            font-size: 24px;
+            color: #ff6600;
+            margin-right: 10px;
+        }
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="title">Rakshit Makan</h1>
+        <p class="subtitle">Generative AI Engineer</p>
+        <p class="location">Montreal, Canada</p>
     </header>
-    <section id="services">
+    <div class="toggle-switch">
+        <input type="checkbox" id="theme-switch" />
+        <label for="theme-switch"></label>
+    </div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section id="home" class="parallax">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="text-uppercase section-heading">SKILL Set</h2>
-                    <h3 class="text-muted section-subheading">Following are my area of expertise</h3>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fab fa-python fa-stack-1x fa-inverse"></i></span>
-                    <h4 class="section-heading">Python</h4>
-                    <p class="text-muted"></p>
-                </div>
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-wechat fa-stack-1x fa-inverse"></i></span>
-                    <h4 class="section-heading">Hugging Face</h4>
-                    <p class="text-muted"></p>
-                </div>
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-bar-chart-o fa-stack-1x fa-inverse"></i></span>
-                    <h4 class="section-heading">Pytorch</h4>
-                    <p class="text-muted"></p>
-                </div>
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-bar-chart-o fa-stack-1x fa-inverse"></i></span>
-                    <h4 class="section-heading">Pytorch Lightning&nbsp;</h4>
-                    <p class="text-muted"></p>
-                </div>
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-bar-chart-o fa-stack-1x fa-inverse"></i></span>
-                    <h4 class="section-heading">Hypothesis Testing</h4>
-                    <p class="text-muted"></p>
-                </div>
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-database fa-stack-1x fa-inverse"></i></span>
-                    <h4 class="section-heading">MySQL, PostgreSQL<br></h4>
-                    <p class="text-muted"></p>
-                </div>
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-database fa-stack-1x fa-inverse"></i></span>
-                    <h4 class="section-heading">Alteryx, DOMO</h4>
-                    <p class="text-muted"></p>
-                </div>
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-pie-chart fa-stack-1x fa-inverse"></i></span>
-                    <h4 class="section-heading">Tableau, Qlik View</h4>
-                    <p class="text-muted"></p>
-                </div>
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-cog fa-stack-1x fa-inverse"></i></span>
-                    <h4 class="section-heading">Flask</h4>
-                    <p class="text-muted"></p>
-                </div>
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-html5 fa-stack-1x fa-inverse"></i></span>
-                    <h4 class="section-heading">HTML</h4>
-                    <p class="text-muted"></p>
-                </div>
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fab fa-js fa-stack-1x fa-inverse"></i></span>
-                    <h4 class="section-heading">JS, D3js, Google Charts</h4>
-                    <p class="text-muted"></p>
-                </div>
-                <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-cog fa-stack-1x fa-inverse"></i></span>
-                    <h4 class="section-heading">Selenium</h4>
-                    <p class="text-muted"></p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="bg-light" id="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="text-uppercase section-heading">Highlights</h2>
-                    <h3 class="text-muted section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="assets/img/portfolio/thesis.png">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Thesis</h4>
-                        <p class="text-muted">Research Work</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 offset-xl-0 portfolio-item"><a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="assets/img/portfolio/human-activity-recognition-fitness-app.jpg">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Pose Estimation</h4>
-                        <p class="text-muted">Computer Vision</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="assets/img/portfolio/surevy.png">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Survey Analyser</h4>
-                        <p class="text-muted">NLP and ML</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="assets/img/portfolio/VOLUNTEER.jpg">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Voluntary Work</h4>
-                        <p class="text-muted">Teacher Assistant&nbsp;</p>
-                        <p class="text-muted"></p>
-                    </div>
-                </div>
-            </div>
+            <h2 class="section-title">Welcome</h2>
+            <p class="content">Generative AI Engineer with over 7 years of experience in AI and data science, proficient in developing and deploying large language models and machine learning solutions across various sectors.</p>
         </div>
     </section>
     <section id="about">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="text-uppercase">Journey</h2>
-                    <h3 class="text-muted section-subheading">Timeline of my Academic and Professional Experience</h3>
+            <h2 class="section-title">About Me</h2>
+            <p class="content">I am a Generative AI Engineer based in Montreal, Canada, with a passion for developing innovative AI solutions that drive significant business impact.</p>
+        </div>
+    </section>
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="card-container skills">
+                <div class="card skills-card">
+                    <img src="https://img.icons8.com/color/48/000000/openai.png" alt="OpenAI">
+                    <div>
+                        <h3>Generative AI</h3>
+                        <ul>
+                            <li>OpenAI API</li>
+                            <li>LangChain</li>
+                            <li>HuggingFace Trainer API</li>
+                            <li>Instruct Finetuning</li>
+                            <li>Gradio Application</li>
+                            <li>GPT-4 Evaluation</li>
+                            <li>Instruction Finetuning</li>
+                            <li>Lora/QLora Training</li>
+                            <li>Prompt Engineering</li>
+                            <li>Mistral AI</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card skills-card">
+                    <img src="https://img.icons8.com/color/48/000000/artificial-intelligence.png" alt="AI">
+                    <div>
+                        <h3>Data Science & ML</h3>
+                        <ul>
+                            <li>PyTorch</li>
+                            <li>Scikit-learn</li>
+                            <li>Pandas</li>
+                            <li>NumPy</li>
+                            <li>Transformers</li>
+                            <li>Spacy</li>
+                            <li>Descriptive Statistics</li>
+                            <li>Hypothesis Testing</li>
+                            <li>Data Visualization</li>
+                            <li>Excel</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card skills-card">
+                    <img src="https://img.icons8.com/color/48/000000/programming.png" alt="Programming">
+                    <div>
+                        <h3>Software Development</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>SQL</li>
+                            <li>Flask Framework</li>
+                            <li>HTML</li>
+                            <li>JavaScript</li>
+                            <li>Git</li>
+                            <li>CI/CD pipeline</li>
+                            <li>Agile Framework</li>
+                            <li>JIRA</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-group timeline">
-                        <li class="list-group-item timeline-inverted">
-                            <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/Dalhousie.jpeg"></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>Jan-21 till today</h4>
-                                    <h5 class="subheading">MCS - Dalhousie University</h5>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted"><strong>Specialisation</strong>: Machine Learning, Deep learning, NLP, and Visual Analytics<br><strong>Course Work</strong>&nbsp;: <em>CSCI 6509</em>(AD. NLP), <em>CSCI 6505 </em>(Machine Learning), <em>CSCI 6516</em> (Deep learning), <em>CSCI 6612</em> (Visual Analytics)<br><strong>Thesis&nbsp;</strong>: Human-in-the-loop incremental learning for scanned documents</p>
-                                    <p class="text-muted"><strong>Academic Project</strong>:<br><em>Deep Language representation of Document Clustering</em>: In this project we worked with&nbsp;BERT and S-BERT sentence embedding to cluster the research paper based on their<br>Abstract.<br><em>Layer wise analysis of Transformer Model</em>: Created a visual analytical system for course CSCI 6612 to study the behavior of data in the layers of the transformers on a text classification task.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/novartis.jpeg"></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>Feb-19 to Jan-21</h4>
-                                    <h5 class="subheading">Novartis - Senior Analyst</h5>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted" style="text-align: left;/*width: 100%;*//*direction: ltr;*//*width: 150%;*/float: right;justify-content: end;"><strong>Top-gun Optimizer</strong> : Created Web based application based on flask framework for marketing team to simulate and optimize the promotional budget based on the sigmoidal response curves and using results of market mix model.<br></p>
-                                    <p class="text-muted" style="text-align: left;/*width: 100%;*//*direction: ltr;*//*width: 150%;*/float: right;/*justify-content: end;*/"><strong>Promotion Mix Modelling</strong>: Using the linear mixed effect modelling technique created a model for evaluating the campaign effectiveness and drug’s sales baseline and created a campaign optimisation plan considering the geographical nuances saving 25% of marketing budget every month<br></p>
-                                    <p class="text-muted" style="text-align: left;/*width: 100%;*//*direction: ltr;*//*width: 150%;*/float: right;"><strong>PPT and PDF Parser:</strong> Used python to devise a parser to extract the text and the metadata from the XML produced by PPT and PDF. Employed Pandas string functions and NLTK packages to clean the extracted sentences and prepare it for further text clustering exercise.<br></p>
-                                    <p class="text-muted" style="text-align: left;/*width: 100%;*//*direction: ltr;*//*width: 150%;*/float: right;"><strong>Qlik-Sense Integration:</strong> Successfully integrated Qlik-sense with python and added unsupervised machine learning capabilities for digital marketing data.<br></p>
-                                    <p class="text-muted" style="text-align: left;/*width: 100%;*//*direction: ltr;*//*width: 150%;*/float: right;"><strong>Multi-Channel Engagement Dash-boarding:</strong> Handled client end to end client engagements, contributed ideas in wire frame creation and took charge of data modelling in Alteryx ETL tool for multiple drugs and disease therapy area.<br></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item timeline-inverted">
-                            <div class="timeline-image" style="background-color: var(--white);"><img class="rounded-circle img-fluid" src="assets/img/about/data_analyst.png" width="156" height="156"></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>Mar-18 to Jan-19</h4>
-                                    <h5 class="subheading">Decision Tree - Data Analyst</h5>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted"><strong>Backend API Development</strong>: Using the python capability developed backend process of getting data from digital marketing platforms. Used multiprocessing and CRON scheduling to save infrastructure expansion cost.<br></p>
-                                    <p class="text-muted"><strong>Automation Testing and Data Scraper</strong>: Created scripts using selenium for unit testing of front-end website. Also, used to created web scraping tool to gather data for analysis.<br></p>
-                                    <p class="text-muted"><strong>Quality Check Automation</strong>: Setup the python-based process to validate numbers in multiple dashboards by<br>using selenium to extract the numbers from the digital marketing platforms (Google AdWords, Facebook business etc.) and matching it with the processed number in DOMO. Successfully saved $60,000 by reducing 4 hours of daily human efforts to 30 mins with minimum supervision.<br></p>
-                                    <p class="text-muted"><strong>Digital Marketing Reporting</strong>: Fully integrated and automated reporting solution for client on DOMO which was<br>an HOURLY refresh providing a real time performance of digital campaign running across 10 different platform.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/accenture.png" width="156" height="156"></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>Jan-17 to Mar-18</h4>
-                                    <h5 class="subheading">Accenture - Software Eng.</h5>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted" style="text-align: left;"><strong>Data Warehousing</strong>: Used Legendary tool Informatica Power Center in creating data warehouse SNOWFLAKE model in MS-SQL database. Optimized workflows and SQL queries for minimum turnaround time. Careful scheduling resulted in minimum conflict for memory sharing among workflows, hence extracting maximum from current infrastructure.<br>• </p>
-                                    <p class="text-muted" style="text-align: left;"><strong>Chat-bot</strong>: Using NLTK, natural language processing library for cleaning, and logistic regression for classifying the human input and based on the keywords, providing best available answer to the queries. Along with that created front end chatting interface using FLASK framework.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item timeline-inverted">
-                            <div class="timeline-image" style="background-color: grey;background: grey;"><img class="rounded-circle img-fluid" src="assets/img/about/ggsipu.jpeg" width="156" height="156" style="background-color: grey;"></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>Aug-12 to Jun-16</h4>
-                                    <h5 class="subheading">B.TECH - GGSIPU</h5>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted"><strong>Specialisation</strong>: Electronics and communications<br><strong>Total credit</strong>: 213<br>Completed with <strong>First Division</strong> and <strong>scored 70%</strong></p>
-                                    <p class="text-muted"><strong>Academic Project</strong>&nbsp;:&nbsp;</p>
-                                    <p class="text-muted"><em>Face Detection and Recognition System for Automated Attendance</em>: Created an interface for teachers to take attendance with a click of picture that can avoid proxy attendance and time taken. This project uses Voila Jones for face detection and facial feature distance to recognise faces. The tool was developed in MATLAB.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item timeline-inverted">
-                            <div class="timeline-image">
-                                <h4>13 Jan 1994, I was Born</h4>
-                            </div>
-                        </li>
+        </div>
+    </section>
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://img.icons8.com/color/48/000000/company.png" alt="Behavox">
+                    <h3>Behavox</h3>
+                    <p>LLM/Generative AI Engineer</p>
+                    <p>Montréal | Jan 2023 - Present</p>
+                    <ul>
+                        <li>Developed a custom Large Language Model (LLM) for finance using Mistral 7B, Yi-34B, and Llama-2 base models, achieving state-of-the-art results in financial text classification and fraud detection.</li>
+                        <li>Designed and implemented a multi-task LLM fine-tuning framework for chat summarization, completion, and explanation, resulting in a 25% increase in chatbot accuracy.</li>
+                        <li>Collaborated with cross-functional teams to integrate LLM with existing financial systems, ensuring seamless deployment and maintenance.</li>
+                        <li>Led the development and implementation of a custom risk detection solution, integrating regex filtering with a state-of-the-art transformer model, resulting in a $500,000 revenue increase within a quarter.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <img src="https://img.icons8.com/color/48/000000/company.png" alt="Mitacs">
+                    <h3>Mitacs</h3>
+                    <p>AI Research Intern</p>
+                    <p>Halifax | Feb 2022 - Jul 2022</p>
+                    <ul>
+                        <li>Developed a real-time machine learning framework for multi-page scanned document classification, utilizing computer vision and natural language processing techniques.</li>
+                        <li>Explored diverse Transformer models (BERT, TransformerXL, Longformer, Roberta XLM) and achieved a 98% F1 score with the deployed model on AWS.</li>
+                        <li>Conducted thorough experiments and analysis, publishing an original thesis on document classification and information extraction.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <img src="https://img.icons8.com/color/48/000000/company.png" alt="Novartis">
+                    <h3>Novartis Pharmaceuticals</h3>
+                    <p>Data Scientist</p>
+                    <p>Hyderabad | Feb 2019 - Jan 2021</p>
+                    <ul>
+                        <li>Saved $100k yearly by internalizing digital marketing processes, including data preparation, data mining, and interactive dashboard development.</li>
+                        <li>Introduced machine learning and visual analytics solutions, achieving a 15% sales increase with top-tier healthcare professionals (HCPs) through targeted marketing campaigns.</li>
+                        <li>Developed and deployed predictive models for sales forecasting, resulting in a 10% reduction in sales variance.</li>
+                        <li>Collaborated with marketing teams to design and implement A/B testing experiments, measuring campaign effectiveness and informing data-driven decisions.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <img src="https://img.icons8.com/color/48/000000/company.png" alt="Decision Tree">
+                    <h3>Decision Tree Analytics and Services</h3>
+                    <p>Data Analyst</p>
+                    <p>New Delhi | Mar 2018 - Jan 2019</p>
+                    <ul>
+                        <li>Developed interactive digital marketing dashboards in DOMO and Tableau, improving UI/UX through storyboarding techniques and showcasing performance KPIs for clients.</li>
+                        <li>Worked on QA automation using Selenium, saving 3 hours of daily manual tasks and enhancing reliability.</li>
+                        <li>Extracted and processed large datasets from social media platforms (Google Ads, Facebook Insights, Yahoo Gemini, App Leads, Taboola Ads) using Python and RESTful APIs.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <img src="https://img.icons8.com/color/48/000000/company.png" alt="Accenture">
+                    <h3>Accenture</h3>
+                    <p>Associate Software Development</p>
+                    <p>New Delhi | Jan 2017 - Mar 2018</p>
+                    <ul>
+                        <li>Implemented and maintained Informatica PowerCenter ETL workflows, optimizing storage and processing of historical data in a data warehouse with a snowflake schema.</li>
+                        <li>Enhanced ETL flow efficiency by replacing complex data processing with SQL queries at the source, resulting in a significant 90% reduction in runtime.</li>
+                        <li>Developed a chatbot prototype using the naïve Bayes classification algorithm, winning a cash prize during the innovation month and addressing team project queries.</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-    <section id="contact" style="background-image:url('assets/img/map-image.png');">
+    <section id="projects" class="parallax">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="text-uppercase section-heading">Contact Me</h2>
-                    <h3 class="text-muted section-subheading">You can drop an email at : rakshitmakan@gmail.com</h3>
-                </div>
+            <h2 class="section-title">Projects</h2>
+            <div class="content">
+                <h3>Highlighted Projects</h3>
+                <ul>
+                    <li>Custom Large Language Model for Finance</li>
+                    <li>Real-Time Machine Learning Framework for Document Classification</li>
+                    <li>Digital Marketing Dashboards</li>
+                    <li>Predictive Models for Sales Forecasting</li>
+                </ul>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <form id="contactForm" name="contactForm" novalidate="novalidate">
-                        <div class="form-row">
-                            <div class="col-md-6">
-                                <div class="form-group"><input class="form-control" type="text" id="name" placeholder="Your Name *" required=""><small class="form-text text-danger flex-grow-1 help-block lead"></small></div>
-                                <div class="form-group"><input class="form-control" type="email" id="email" placeholder="Your Email *" required=""><small class="form-text text-danger help-block lead"></small></div>
-                                <div class="form-group"><input class="form-control" type="tel" placeholder="Your Phone *" required=""><small class="form-text text-danger help-block lead"></small></div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group"><textarea class="form-control" id="message" placeholder="Your Message *" required=""></textarea><small class="form-text text-danger help-block lead"></small></div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-lg-12 text-center">
-                                <div id="success"></div><button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
+        </div>
+    </section>
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="content">
+                <h3>Dalhousie University | Master of Computer Science</h3>
+                <p>Jan 2021 - Dec 2022</p>
+                <p>Earned a $30,000 scholarship for outstanding performance.</p>
+                <p>Served as a Teaching Assistant for machine learning, NLP, and statistical methods courses, conducting labs for over 100 students and contributing to their academic success.</p>
+                <h3>Guru Gobind Singh Indraprastha University | Bachelor of Technology, ECE</h3>
+                <p>Aug 2012 - Jun 2016</p>
+                <p>President: Organized 3-day College Annual Fest for 2016 ensuring 1000+ footfall everyday and raised half a million rupees from sponsorship and brand promotion.</p>
+                <p>Eco Club Chairman: Led a team of 15 students to organize multiple awareness events to promote green and clean energy and sustainable development.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="parallax">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="content">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+15142333618">+1 514-233-3618</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:rakshitmakan@gmail.com">rakshitmakan@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/rakmakan" target="_blank">rakmakan</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/rakshit-makan-61001aa4/" target="_blank">Rakshit Makan</a>
                 </div>
             </div>
         </div>
     </section>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4"><span class="copyright">Copyright&nbsp;© Brand 2022</span></div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li class="list-inline-item"><a href="https://github.com/rakmakan"><i class="fa fa-github"></i></a></li>
-                        <li class="list-inline-item"><a href="https://medium.com/@rmakan2016"><i class="fa fa-book"></i></a></li>
-                        <li class="list-inline-item"><a href="https://www.linkedin.com/in/rakshit-makan-61001aa4/"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                        <li class="list-inline-item"><a href="#">Terms of Use</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="portfolioModal1">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="modal-body">
-                                <h2 class="text-uppercase">POSE ESTIMATION</h2>
-                                <p class="text-muted item-intro">Online REBA score estimation system</p><img class="img-fluid d-block mx-auto" src="assets/img/portfolio/human-activity-recognition-fitness-app.jpg">
-                                <p><strong><span style="text-decoration: underline;">Technology</span></strong>&nbsp;: Python, Flask, HTML, CSS, Bootstrap, Javascript, OpenCV, SQL</p>
-                                <p><strong><span style="text-decoration: underline;">Problem Statement</span></strong>&nbsp;: REBA stands for Rapid Entire Body Assessment. It is a tool used to evaluate the risk of musculoskeletal disorders (MSDs) associated with specific tasks within a job. Currently, companies hire ergonomics to perform this assessment on employees at regular intervals of time. The manual and non-real-time evaluation are ineffective methods. It requires a solution that can dynamically assess the human posture at work and report in case of bad posture, so that company can enact proactively.</p>
-                                <p><strong><span style="text-decoration: underline;">Solution</span></strong> :&nbsp;Created a web based application where the companies can upload their video clips and can get real-time REBA score. The solution also include frame by frame breakdown of the video supported by interactive visualisation. This provide the company a holistic view and actionable KPIs to ensure the safety of their employees.</p>
-                                <p><strong><span style="text-decoration: underline;">Technical Aspect</span></strong>&nbsp;: The front-end include 5 views including registration, login, upload page, video manager and REBA Report. It extensively uses <strong>HTML, CSS, Java-Script, and D3js.</strong> The app uses<strong> python based Flask framework</strong> in back-end to manage the API calls. For data management we used a relational database to store all the user related data.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </p>
-                                <p>For pose estimation, we used <strong>Google's machine learning framework Media Pipe. </strong>The inference data is consumed by a custom algorithm to calculate angles, adding color indicators and estimating score for each frame.&nbsp;</p>
-                                <p></p>
-                                <p></p>
-                                <ul class="list-unstyled">
-                                    <li><strong>Date</strong>: Nov, 2022 to Present</li>
-                                    <li><strong>Client</strong>: Vergo -&nbsp; Freelancing Project</li>
-                                    <li><strong>Category</strong>: Computer Vision, Web-App, Machine Learning, Flask</li>
-                                </ul><button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fa fa-times"></i><span>&nbsp;Close Project</span></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="portfolioModal2">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="modal-body">
-                                <h2 class="text-uppercase">SURVEY AnaLYSER</h2>
-                                <p class="text-muted item-intro"></p><img class="img-fluid d-block mx-auto" src="assets/img/portfolio/surevy.png">
-                                <p></p>
-                                <p><strong>Problem Statement</strong></p>
-                                <p>Imagine your business to have got 100+ customer reviews. They would have different<br>words &amp; even varying tones of customers — from good to bad or even worse. This analysis could be done manually, but, as the volume of unstructured text increases, the manual approach to text analytics becomes ineffective and unproductive. The amount<br>of labour required to carry out text analytics makes the manual approach inefficient.</p>
-                                <p><strong>Highlights</strong></p>
-                                <p></p>
-                                <p style="text-align: justify;"><strong>Theme Identifier</strong> Identifies the key phrases/themes present in your text, enabling team to get overview of what is present in the data without any human bias. Such an overarching approach to identifying topics of interest would enable a business to identify positive and negative topics of high impact that can be improved immediately<br></p>
-                                <p style="text-align: justify;"><strong>Sentiments Analyser&nbsp;</strong>: Analyzes text and reports on the presence of negative, positive, and neutral sentiment, so organizations know how people feel about their offerings<br></p>
-                                <p style="text-align: justify;"><strong>Customisation&nbsp;</strong>: Allows you to fully customize the themes/sentiments using merge/edit feature based on your business understanding Tagger: Let’s you create tags so that important business terms can be analyzed properly<br></p>
-                                <p style="text-align: justify;"><strong>Visualisation&nbsp;</strong>: Dashboard to show you top themes, sentiments &amp; their distribution across other dimensions<br></p>
-                                <p style="text-align: justify;"><strong>Project Panel&nbsp;</strong>: shows all your projects in single place Combine Projects : Allows to merge multiple projects to analyze the theme evolution over data collected in multiple periods of time</p>
-                                <ul class="list-unstyled">
-                                    <li><strong>Category</strong>: Natural language Processing, Clustering, Topic Modelling</li>
-                                </ul><button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fa fa-times"></i><span>&nbsp;Close Project</span></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="portfolioModal3">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="modal-body">
-                                <h2 class="text-uppercase"><strong>HUMAN IN THE LOOP CLASSIFIER</strong></h2><img class="img-fluid d-block mx-auto" src="assets/img/portfolio/thesis.png" width="442" height="332">
-                                <p>WORK IN PROGRESS</p>
-                                <ul class="list-unstyled">
-                                    <li><strong>Date</strong>: Feb 2022 to Current</li>
-                                    <li><strong>Client</strong>: Mitacs</li>
-                                    <li><strong>Category</strong>: Thesis, Natural Language Processing, Deep Language Model, Machine learning</li>
-                                </ul><button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fa fa-times"></i><span>&nbsp;Close Project</span></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="portfolioModal4">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="modal-body">
-                                <h2 class="text-uppercase">Human In the Loop Classifier</h2>
-                                <p class="text-muted item-intro"></p><img class="img-fluid d-block mx-auto" src="assets/img/portfolio/thesis.png">
-                                <p>Work in Progress!</p>
-                                <ul class="list-unstyled">
-                                    <li>Date: Feb 2022 to Current</li>
-                                    <li>Client: Condo Clear</li>
-                                    <li>Category: Visual Analytics, Deep Language Model, Classification</li>
-                                </ul><button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fa fa-times"></i><span>&nbsp;Close Project</span></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="portfolioModal5">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="modal-body">
-                                <h2 class="text-uppercase">Data Channel</h2>
-                                <p class="text-muted item-intro">Lorem ipsum dolor sit amet consectetur.</p><img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Data%20channel.jpg">
-                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                <ul class="list-unstyled">
-                                    <li>Date: January 2017</li>
-                                    <li>Client: Threads</li>
-                                    <li>Category: Illustration</li>
-                                </ul><button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fa fa-times"></i><span>&nbsp;Close Project</span></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="portfolioModal6">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="modal-body">
-                                <h2 class="text-uppercase">Voluntary Work</h2>
-                                <p class="text-muted item-intro"></p><img class="img-fluid d-block mx-auto" src="assets/img/portfolio/voluntary.jpg">
-                                <p><strong>Subject: CSCI 3151 – Foundation of Machine Learning</strong><br><strong>Jan 2022: Apr 2022</strong></p>
-                                <p style="text-align: left;"><strong>[ 1 ]</strong> Taught concepts and python implementation of machine learning and deep learning topics.<br><strong>[ 2 ]&nbsp;</strong>Prepared lab tutorials and quizzes on the following topics: Python Basics, Data Preprocessing, Classification Algorithms (Decision Tree, SVM, and KNN), Neural Network with Keras, Generative Models, Data Simulations, and Clustering Algorithms.</p>
-                                <p><strong>Subject: CSCI 6055 – Research Methods &amp; Statistics</strong><br><strong>Sept 2021: Dec 2021</strong></p>
-                                <p style="text-align: left;"><strong>[ 1 ]</strong> Responsible for conducting 10 labs for the subject covering the basics of statistics, data preprocessing and hypothesis testing.<br><strong>[ 2 ]</strong> Created material for the labs describing the topic and their implementation in python. Along with that created assignments for each lab and marked them.<br></p>
-                                <p><strong>Subject: CSCI 6940 - Process of Data Science</strong><br><strong>May 2021: Aug 2021</strong></p>
-                                <p style="text-align: left;"><strong>[ 1 ]</strong> Responsible for creating the 4 lab assignments for the subject covering classification and clustering models for different type of data like numerical, geo spatial, time series and text data.</p><button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fa fa-times"></i><span>&nbsp;Close Project</span></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="assets/js/agency.js"></script>
-</body>
+    <script>
+        const themeSwitch = document.getElementById('theme-switch');
+        themeSwitch.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+            document.querySelectorAll('header, nav, section').forEach(element => {
+                element.classList.toggle('dark-mode');
+            });
+        });
 
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.container').forEach(container => {
+            observer.observe(container);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
 </html>
